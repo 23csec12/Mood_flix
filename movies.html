@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoodFlix Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="movie-home-page">
+
+  <!-- TOP NAV -->
+  <button class="back-btn top-back" onclick="backToAvatar()">← Back</button>
+
+  <header class="top-nav">
+    <div class="brand-logo">MoodFlix</div>
+
+    <div class="top-right">
+      <input type="text" id="searchInput" placeholder="Search movie titles..." class="search-bar" onkeyup="searchMovies()">
+
+      <div class="top-profile" id="selectedProfileTop" onclick="toggleProfileMenu()"></div>
+
+      <!-- PROFILE MENU -->
+      <div class="profile-menu" id="profileMenu">
+        <button onclick="changeSelectedProfileName()">Change Name</button>
+        <button onclick="deleteSelectedProfile()" class="delete-profile-btn">Delete Profile</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Find Your Next Watch</h1>
+      <p>Discover movies by genre, mood and vibe</p>
+      <div class="hero-buttons">
+        <button onclick="showAllMovies()">Explore All</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GENRE BUTTONS -->
+  <section class="genre-section" id="genreSection">
+    <h2>Explore by Genre / Mood</h2>
+    <div class="genre-buttons">
+      <button onclick="filterGenre('All')">All</button>
+      <button onclick="filterGenre('Family')">Family</button>
+      <button onclick="filterGenre('Sad')">Sad</button>
+      <button onclick="filterGenre('Horror')">Horror</button>
+      <button onclick="filterGenre('Fantasy')">Fantasy</button>
+      <button onclick="filterGenre('Crime')">Crime</button>
+      <button onclick="filterGenre('Novel Based')">Novel Based</button>
+      <button onclick="filterGenre('Mystery')">Mystery</button>
+      <button onclick="filterGenre('Romance')">Romance</button>
+      <button onclick="filterGenre('Comedy')">Comedy</button>
+      <button onclick="filterGenre('Thriller')">Thriller</button>
+      <button onclick="filterGenre('Action')">Action</button>
+      <button onclick="filterGenre('Anime')">Anime</button>
+      <button onclick="filterGenre('Fictional')">Fictional</button>
+      <button onclick="filterGenre('Korean')">Korean</button>
+    </div>
+  </section>
+
+
+  <!-- MOVIE RESULTS -->
+  <section class="discover-section">
+    <h2 id="resultsTitle">Discover Movies</h2>
+
+    <div class="movie-grid" id="movieGrid">
+
+      <div class="movie-box" onclick="addToWatchlist('Mardaani 2','https://resizing.flixster.com/fUrgeMcXdzz8J5Gw_-2ZoAGxrJ8=/206x305/v2/https://resizing.flixster.com/Ixr2vbp7gPA2WG6bkbEWdgF-qGM=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2U4ZGQ5YzZkLTY4NWItNGE4Mi1iNGNiLTk2YjY4MjJiZWZjZS53ZWJw','Crime • Thriller • Action')" data-tags="Crime Thriller Action">
+        <img src="https://resizing.flixster.com/fUrgeMcXdzz8J5Gw_-2ZoAGxrJ8=/206x305/v2/https://resizing.flixster.com/Ixr2vbp7gPA2WG6bkbEWdgF-qGM=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2U4ZGQ5YzZkLTY4NWItNGE4Mi1iNGNiLTk2YjY4MjJiZWZjZS53ZWJw" alt="Mardaani 2">
+        <div class="movie-info">
+          <h3>Mardaani 2</h3>
+          <p>Crime • Thriller • Action</p>
+        </div>
+      </div>
+
+      <div class="movie-box" onclick="addToWatchlist('20th Century Girl','https://m.media-amazon.com/images/M/MV5BMTk3NWVhNjQtNzVjYi00NzkwLThhMmEtMjUxMzUzMWMxMGIzXkEyXkFqcGc@._V1_.jpg','Romance • Sad • Korean')" data-tags="Romance Sad Korean">
+        <img src="https://m.media-amazon.com/images/M/MV5BMTk3NWVhNjQtNzVjYi00NzkwLThhMmEtMjUxMzUzMWMxMGIzXkEyXkFqcGc@._V1_.jpg" alt="20th Century Girl">
+        <div class="movie-info">
+          <h3>20th Century Girl</h3>
+          <p>Romance • Sad • Korean</p>
+        </div>
+      </div>
+
+      <div class="movie-box" onclick="addToWatchlist('Naruto','https://m.media-amazon.com/images/M/MV5BZTNjOWI0ZTAtOGY1OS00ZGU0LWEyOWYtMjhkYjdlYmVjMDk2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg','Anime • Action • Ninja')" data-tags="Anime Action Ninja Fictional">
+        <img src="https://m.media-amazon.com/images/M/MV5BZTNjOWI0ZTAtOGY1OS00ZGU0LWEyOWYtMjhkYjdlYmVjMDk2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Naruto">
+        <div class="movie-info">
+          <h3>Naruto</h3>
+          <p>Anime • Action • Ninja</p>
+        </div>
+      </div>
+
+       <div class="movie-box" onclick="addToWatchlist(' Jujutsu-kaisen','https://i.pinimg.com/736x/2e/61/5e/2e615efd6a6ac5c90b5770361575888a.jpg','Anime • Action • Magic')" data-tags="Anime Action Ninja Fictional">
+        <img src="https://i.pinimg.com/736x/2e/61/5e/2e615efd6a6ac5c90b5770361575888a.jpg" alt="jujutsu-kaisen">
+        <div class="movie-info">
+          <h3>Jujutsu-kaisen</h3>
+          <p>Anime • Action • Magic</p>
+        </div>
+      </div>
+
+      <div class="movie-box" onclick="addToWatchlist('Jujutsu-kaisen S2','https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/08/jujutsu-kaisen-season-2-shibuya-incident-poster-cropped.jpg?w=1600&h=900&fit=crop','Anime • Action • Ninja')" data-tags="Anime Action Ninja Fictional">
+        <img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/08/jujutsu-kaisen-season-2-shibuya-incident-poster-cropped.jpg?w=1600&h=900&fit=crop" alt="">
+        <div class="movie-info">
+          <h3>jujutsu-kaisen S2</h3>
+          <p>Anime • Action • Magic</p>
+        </div>
+      </div>
+
+      <div class="movie-box" onclick="addToWatchlist('Jujutsu-kaisen S3','https://a.storyblok.com/f/178900/1003x1504/9047535fee/jujutsu-kaisen-season-3-teaser-visual-en.jpg/m/filters:quality(95)format(webp)','Anime • Action • Ninja')" data-tags="Anime Action Ninja Fictional">
+        <img src="https://a.storyblok.com/f/178900/1003x1504/9047535fee/jujutsu-kaisen-season-3-teaser-visual-en.jpg/m/filters:quality(95)format(webp)" alt="Jujutsu-kaisen S3">
+        <div class="movie-info">
+          <h3>jujutsu-kaisen S3</h3>
+          <p>Anime • Action • Magic</p>
+        </div>
+      </div>
+
+      <div class="movie-box" onclick="addToWatchlist('Harry Potter and the philosphers stone','https://images.moviesanywhere.com/143cdb987186a1c8f94d4f18de211216/fdea56fa-2703-47c1-8da8-70fc5382e1ea.jpg','Fantasy • Family • Fictional')" data-tags="Fantasy Family Fictional">
+        <img src="https://images.moviesanywhere.com/143cdb987186a1c8f94d4f18de211216/fdea56fa-2703-47c1-8da8-70fc5382e1ea.jpg" alt="Harry Potter and the philosphers stone">
+        <div class="movie-info">
+          <h3>Harry Potter and the philosphers stone</h3>
+          <p>Fantasy • Magic • Fictional</p>
+        </div>
+      </div>
+
+      <div class="movie-box" onclick="addToWatchlist('Zootopia','https://is.zobj.net/image-server/v1/images?r=14z5RCcDzPZN-ZHNnTqsmrbcnk-GdyIhBGqz6Z-fC09Q-LQYW-XgJu9NbTKC4OFnkC2i2BRgITSJ7ud-DRZZwBqpoYAcUDXOnBdodKElqenYE6UFClZqCErKSjP7DKRgh6cAD4961kDrEFdIR7OFYF03exudhpsy9eDJlmdJdsP_BuAE8_ds-_QnRkoqIQ9eWDUtVJIXPZRvl5xarjuj-BVEiICgCK0Wyw4ZmW9kPNUFlr7YHM7rNX8zFSY','Family • Comedy • Animation')" data-tags="Family Feel Good Animation">
+        <img src="https://is.zobj.net/image-server/v1/images?r=14z5RCcDzPZN-ZHNnTqsmrbcnk-GdyIhBGqz6Z-fC09Q-LQYW-XgJu9NbTKC4OFnkC2i2BRgITSJ7ud-DRZZwBqpoYAcUDXOnBdodKElqenYE6UFClZqCErKSjP7DKRgh6cAD4961kDrEFdIR7OFYF03exudhpsy9eDJlmdJdsP_BuAE8_ds-_QnRkoqIQ9eWDUtVJIXPZRvl5xarjuj-BVEiICgCK0Wyw4ZmW9kPNUFlr7YHM7rNX8zFSY" alt="Zootopia">
+        <div class="movie-info">
+          <h3>Zootopia</h3>
+          <p>Family • Comedy • Animation</p>
+        </div>
+      </div>
+         <div class="movie-box" onclick="addToWatchlist('Zootopia 2','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWPtw2y8S5eCjVfvKy9Vs9tqj1jWBhMOF8SQ&s','Family • Comedy • Animation')" data-tags="Family Feel Good Animation">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWPtw2y8S5eCjVfvKy9Vs9tqj1jWBhMOF8SQ&s" alt="Zootopia 2">
+        <div class="movie-info">
+          <h3>Zootopia 2</h3>
+          <p>Family • Comedy • Animation</p>
+        </div>
+      </div>
+
+      <div class="movie-box" onclick="addToWatchlist('Business Proposal','https://m.media-amazon.com/images/M/MV5BYWM2NTM4MTktNDFiNi00NTI3LThiZTgtZmJiZTQ2NzdhNDE3XkEyXkFqcGc@._V1_.jpg','Romance • Korean • Feel Good')" data-tags="Romance Korean Drama Feel Good">
+        <img src="https://m.media-amazon.com/images/M/MV5BYWM2NTM4MTktNDFiNi00NTI3LThiZTgtZmJiZTQ2NzdhNDE3XkEyXkFqcGc@._V1_.jpg" alt="Business Proposal">
+        <div class="movie-info">
+          <h3>Business Proposal</h3>
+          <p>Romance • Korean • Comedy</p>
+        </div>
+      </div>
+
+      <div class="movie-box" onclick="addToWatchlist('Your Name','https://m.media-amazon.com/images/M/MV5BN2EyZjM3NjUtNTlkOS00MjY2LWE4MzYtYzU2MmM5ZWE3MmVlXkEyXkFqcGc@._V1_.jpg','Fantasy • Romance • Anime')" data-tags="Fantasy Romance Anime Fictional">
+        <img src="https://m.media-amazon.com/images/M/MV5BMTIyNzFjNzItZmQ1MC00NzhjLThmMzYtZjRhN2Y3MmM2OGQyXkEyXkFqcGc@._V1_.jpg" alt="Your Name">
+        <div class="movie-info">
+          <h3>Your Name</h3>
+          <p>Fantasy • Romance • Anime</p>
+        </div>
+      </div>
+
+      <div class="movie-box" onclick="addToWatchlist('Gone Girl','https://resizing.flixster.com/aQeMv4BnSNSclaJb6JU5cIhS9iM=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vOGEzMTU2NjEtOGFhNy00NGJhLWFiZjQtZGIyNDY0YWU1YjBlLmpwZw==','Mystery • Thriller • Crime • Novel Based')" data-tags="Mystery Thriller Crime Novel Based">
+        <img src="https://resizing.flixster.com/aQeMv4BnSNSclaJb6JU5cIhS9iM=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vOGEzMTU2NjEtOGFhNy00NGJhLWFiZjQtZGIyNDY0YWU1YjBlLmpwZw==" alt=" My Name">
+        <div class="movie-info">
+          <h3>My Name</h3>
+          <p>Mystery • Thriller • Crime • Novel Based</p>
+        </div>
+      </div>
+
+      <!-- WATCHLIST SECTION -->
+  <section class="watchlist-section">
+    <h2>Your Watchlist</h2>
+    <div class="movie-grid" id="watchlistGrid"></div>
+    <p id="emptyWatchlist" class="no-results">No movies added yet 🎬</p>
+  </section>
+
+    </div>
+
+    <p id="noResultsMessage" class="no-results" style="display:none;">No results found 😶</p>
+  </section>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <div class="nav-item active">🏠<span>Home</span></div>
+    <div class="nav-item">🎞<span>Series</span></div>
+    <div class="nav-item logo-center">M</div>
+    <div class="nav-item">🎬<span>Movies</span></div>
+    <div class="nav-item" onclick="logout()">⚙<span>Logout</span></div>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,683 @@
+/* =========================
+   GENERAL
+========================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #141414;
+  color: white;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: darkred;
+}
+
+input {
+  width: 250px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* =========================
+   HERO / LOGIN PAGE
+========================= */
+.hero {
+  height: 100vh;
+  background: linear-gradient(to top, black, rgba(0,0,0,0.4)),
+              url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4') no-repeat center/cover;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.main-title {
+  font-size: 70px;
+  color: red;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.content h2 {
+  font-size: 40px;
+}
+
+.content p {
+  font-size: 18px;
+}
+
+/* =========================
+   AVATAR PAGE
+========================= */
+.avatar-page {
+  background-color: #111;
+  padding: 30px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.avatar-container {
+  width: 90%;
+  margin: auto;
+}
+
+.avatar-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 40px;
+}
+
+.avatar-container h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 28px;
+  color: #fff;
+}
+
+.avatar-subtext {
+  text-align: center;
+  font-size: 18px;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+.skip-btn-box {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.avatar-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.avatar-row img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 3px solid transparent;
+}
+
+.avatar-row img:hover {
+  transform: scale(1.1);
+  border: 3px solid #e50914;
+}
+
+/* =========================
+   PROFILES PAGE
+========================= */
+.profiles-page {
+  overflow: hidden;
+}
+
+.profiles-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.profiles-sidebar {
+  width: 280px;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 30px 20px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.profiles-sidebar h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #e50914;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profile-item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #333;
+}
+
+.profile-item span {
+  font-size: 20px;
+  color: white;
+}
+
+.profile-item:hover img {
+  border-color: #00bfff;
+  transform: scale(1.05);
+}
+
+.add-profile {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.add-profile:hover {
+  border-color: white;
+  transform: scale(1.05);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+
+.main-preview {
+  flex: 1;
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') no-repeat center center/cover;
+}
+
+.preview-text {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  z-index: 2;
+}
+
+.preview-text h2 {
+  font-size: 50px;
+  margin: 0;
+}
+
+.preview-text p {
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+/* =========================
+   BACK BUTTONS
+========================= */
+.back-btn {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  z-index: 2000;
+  transition: 0.3s;
+  position: fixed;
+  margin-top: 0;
+}
+
+.back-btn:hover {
+  background: darkred;
+  transform: scale(1.05);
+}
+
+/* MOVIES PAGE - TOP LEFT */
+.top-back {
+  top: 20px;
+  left: 20px;
+}
+
+/* AVATAR PAGE - BOTTOM RIGHT */
+.bottom-back {
+  bottom: 20px;
+  right: 20px;
+}
+
+/* =========================
+   MOODFLIX HOME PAGE
+========================= */
+.movie-home-page {
+  background: #000;
+  color: white;
+  padding-bottom: 100px;
+}
+
+/* TOP NAV */
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1500;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 25px 14px 95px; /* pushed logo right and down */
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.brand-logo {
+  font-size: 100px;          /* 🔥 bigger title */
+  font-weight: 900;
+  color: #e50914;
+  margin-top: 100px;        /* 👈 push it well below back button */
+  line-height: 1;
+  text-align:left;       /* 👑 center it nicely */
+  width: 100%;
+ text-shadow: 0 0 20px rgba(229, 9, 20, 0.7);
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.search-bar {
+  padding: 10px 14px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  width: 220px;
+  background: #1c1c1c;
+  color: white;
+}
+
+.top-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.05);
+  padding: 8px 12px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.top-profile:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.top-profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e50914;
+}
+
+.top-profile span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* PROFILE MENU */
+.profile-menu {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(0,0,0,0.45);
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2000;
+  min-width: 180px;
+}
+
+.profile-menu button {
+  margin-top: 0;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #1d1d1d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+}
+
+.profile-menu button:hover {
+  background: #e50914;
+}
+
+.delete-profile-btn {
+  background: #2a1111 !important;
+}
+
+.delete-profile-btn:hover {
+  background: #b30000 !important;
+}
+
+/* HERO */
+.hero-banner {
+  position: relative;
+  height: 88vh;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.25)),
+              url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  margin-top: 95px;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 62px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.hero-content p {
+  font-size: 22px;
+  color: #ddd;
+  margin-bottom: 25px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* GENRE SECTION */
+.genre-section {
+  padding: 35px 25px 10px;
+}
+
+.genre-section h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.genre-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.genre-buttons button {
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: none;
+  background: #171717;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.12);
+  margin-top: 0;
+}
+
+.genre-buttons button:hover {
+  background: #e50914;
+  transform: scale(1.05);
+}
+
+/* WATCHLIST */
+.watchlist-section {
+  padding: 30px 25px 10px;
+}
+
+.watchlist-section h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.remove-btn {
+  margin-top: 10px;
+  background: #222;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.remove-btn:hover {
+  background: #e50914;
+}
+
+/* DISCOVER SECTION */
+.discover-section {
+  padding: 30px 25px;
+}
+
+.discover-section h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+/* MOVIE GRID */
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.movie-box {
+  width: 220px;
+  background: #111;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 18px rgba(255, 0, 0, 0.12);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-box:hover {
+  transform: scale(1.04);
+}
+
+.movie-box img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 14px;
+}
+
+.movie-info h3 {
+  margin: 0;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.movie-info p {
+  margin: 0;
+  color: #bbb;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* OTT */
+.ott-section {
+  padding: 30px 25px;
+}
+
+.ott-section h2 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.ott-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.ott-card {
+  width: 120px;
+  height: 80px;
+  background: #111;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 0 16px rgba(255, 0, 0, 0.35);
+  border: 1px solid rgba(255,0,0,0.2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ott-card:hover {
+  transform: scale(1.05);
+}
+
+/* NO RESULTS */
+.no-results {
+  font-size: 22px;
+  color: #bbb;
+  margin-top: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #0a0a0a;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  z-index: 999;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #bbb;
+  font-size: 14px;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.nav-item span {
+  font-size: 12px;
+}
+
+.nav-item.active {
+  color: white;
+}
+
+.logo-center {
+  font-size: 40px;
+  font-weight: bold;
+  color: #e50914;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .top-nav {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 90px 20px 14px 20px;
+  }
+
+  .top-right {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .search-bar {
+    width: 150px;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .movie-box {
+    width: 180px;
+  }
+
+  .movie-box img {
+    height: 250px;
+  }
+
+  .genre-buttons {
+    gap: 10px;
+  }
+
+  .genre-buttons button {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  .profile-menu {
+    right: 10px;
+    top: 120px;
+  }
+}
